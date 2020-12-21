@@ -1,0 +1,22 @@
+﻿<hr />
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<address>
+    Jossain 10<br />
+    00100 Missä lie<br />
+    <abbr title="Phone">P:</abbr>
+    +358 40 123 45 67
+</address>
+
+<address>
+    <strong>Asiakaspalvelu:</strong>   <a href="mailto:asiakaspalvelu@esimerkki.fi">asiakaspalvelu@esimerkki.fi</a><br />
+    <strong>Markkinointi:</strong> <a href="mailto:markkinointi@esimerkki.fi">markkinointi@esimerkki.fi</a>
+</address>
+
+<div>
+    @Html.ActionLink("Etusivulle", "Index")
+</div>
