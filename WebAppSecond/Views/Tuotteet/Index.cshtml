@@ -6,8 +6,42 @@
 }
 
 <h2>Index</h2>
+<h4>Tuotteita @Model.Count() kappaletta</h4>
 
-<p>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (WebAppSecond.Models.Tuotteet prod in Model)
+        {
+        <div class="col-lg-3">
+            <div class="card mb-3">
+                <h3 class="card-header">@prod.Nimi</h3>
+
+                <img style="height: 200px; width:100%; display:block;" src="@prod.Image" alt="@prod.Image">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">@prod.Ahinta</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Palaa sivun alkuun</a>
+                    <div class="card-footer text-muted">
+                        @Html.ActionLink("Edit", "Edit", new { id = prod.TuoteID }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Details", "Details", new { id = prod.TuoteID }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Delete", "Delete", new { id = prod.TuoteID }, new { @class = "btn btn-dark btn-sm" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        }
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Etusivulle", "Index")
+</div>
+
+
+
+@*<p>
     @Html.ActionLink("Luo uusi..", "Create")
 </p>
 <table class="table">
@@ -24,27 +58,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nimi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ahinta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TuoteID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TuoteID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TuoteID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ahinta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TuoteID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TuoteID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TuoteID })
+            </td>
+        </tr>
+    }
 
 </table>
 
 <div>
     @Html.ActionLink("Etusivulle", "Index")
-</div>
+</div>*@
