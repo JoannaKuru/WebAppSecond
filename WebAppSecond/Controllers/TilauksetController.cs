@@ -23,8 +23,15 @@ namespace WebAppSecond.Controllers
             }
             else ViewBag.LoggedStatus = "In";
 
-            var tilaukset = db.Tilaukset.Include(t => t.Asiakkaat).Include(t => t.Postitoimipaikat);
-            return View(tilaukset.ToList());   
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("login", "home");
+            }
+            else
+            {
+                var tilaukset = db.Tilaukset.Include(t => t.Asiakkaat).Include(t => t.Postitoimipaikat);
+                return View(tilaukset.ToList());
+            }
         }
 
         // GET: Tilaukset/Details/5
