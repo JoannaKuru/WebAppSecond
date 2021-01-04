@@ -40,6 +40,12 @@ namespace WebAppSecond.Controllers
         // GET: Tuotteet/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -55,6 +61,12 @@ namespace WebAppSecond.Controllers
         // GET: Tuotteet/Create
         public ActionResult Create()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             return View();
         }
 
@@ -65,6 +77,12 @@ namespace WebAppSecond.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TuoteID,Nimi,Ahinta,Kuva")] Tuotteet tuotteet)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (ModelState.IsValid)
             {
                 db.Tuotteet.Add(tuotteet);
@@ -78,6 +96,12 @@ namespace WebAppSecond.Controllers
         // GET: Tuotteet/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -97,6 +121,12 @@ namespace WebAppSecond.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "TuoteID,Nimi,Ahinta,Kuva")] Tuotteet tuotteet)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (ModelState.IsValid)
             {
                 db.Entry(tuotteet).State = EntityState.Modified;
@@ -109,6 +139,12 @@ namespace WebAppSecond.Controllers
         // GET: Tuotteet/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

@@ -30,6 +30,12 @@ namespace WebAppSecond.Controllers
         // GET: Tilaukset/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -45,6 +51,12 @@ namespace WebAppSecond.Controllers
         // GET: Tilaukset/Create
         public ActionResult Create()
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             ViewBag.AsiakasID = new SelectList(db.Asiakkaat, "AsiakasID", "Nimi");
             ViewBag.Postinumero = new SelectList(db.Postitoimipaikat, "Postinumero", "Postitoimipaikka");
             return View();
@@ -57,6 +69,12 @@ namespace WebAppSecond.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TilausID,AsiakasID,Toimitusosoite,Postinumero,Tilauspvm,Toimituspvm")] Tilaukset tilaukset)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (ModelState.IsValid)
             {
                 db.Tilaukset.Add(tilaukset);
@@ -72,6 +90,12 @@ namespace WebAppSecond.Controllers
         // GET: Tilaukset/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -93,6 +117,12 @@ namespace WebAppSecond.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "TilausID,AsiakasID,Toimitusosoite,Postinumero,Tilauspvm,Toimituspvm")] Tilaukset tilaukset)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (ModelState.IsValid)
             {
                 db.Entry(tilaukset).State = EntityState.Modified;
@@ -107,6 +137,12 @@ namespace WebAppSecond.Controllers
         // GET: Tilaukset/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                ViewBag.LoggedStatus = "Out";
+            }
+            else ViewBag.LoggedStatus = "In";
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

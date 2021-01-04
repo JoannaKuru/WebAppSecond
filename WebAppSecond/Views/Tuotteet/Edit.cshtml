@@ -1,5 +1,7 @@
 ﻿@model WebAppSecond.Models.Tuotteet
 
+<hr />
+
 @{
     ViewBag.Title = "Edit";
 }
@@ -10,7 +12,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Tuotteet</h4>
         <hr />
