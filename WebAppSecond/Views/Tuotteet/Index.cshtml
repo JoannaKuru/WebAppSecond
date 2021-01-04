@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Tuotelistaus</h2>
 <h4>Tuotteita @Model.Count() kappaletta</h4>
 
 <div class="container-fluid">
@@ -23,9 +23,9 @@
                 <div class="card-body">
                     <a href="#" class="card-link">Palaa sivun alkuun</a>
                     <div class="card-footer text-muted">
-                        @Html.ActionLink("Edit", "Edit", new { id = prod.TuoteID }, new { @class = "btn btn-primary btn-sm" })
-                        @Html.ActionLink("Details", "Details", new { id = prod.TuoteID }, new { @class = "btn btn-primary btn-sm" })
-                        @Html.ActionLink("Delete", "Delete", new { id = prod.TuoteID }, new { @class = "btn btn-dark btn-sm" })
+                        @Html.ActionLink("Muokkaa", "Edit", new { id = prod.TuoteID }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Tiedot", "Details", new { id = prod.TuoteID }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Poista", "Delete", new { id = prod.TuoteID }, new { @class = "btn btn-dark btn-sm" })
                     </div>
                 </div>
             </div>
