@@ -56,12 +56,11 @@
     <div class="col-md-4">
         <h2>Tuotteet</h2>
         <p>Täältä löydät tuotteemme!</p>
-        @*<p><a class="btn btn-info" @Html.ActionLink("Klikkaa tästä »", "Index", "Tuotteet")</a></p>*@
-        <p>@Html.ActionLink("Klikkaa tästä »", "Index", "Tuotteet", new { @class = "btn btn-info" })</p>
-
+        <p><a class="btn btn-info" @Html.ActionLink("Klikkaa tästä »", "Index", "Tuotteet")</a></p>
+        @*<p>@Html.ActionLink("Klikkaa tästä »", "Index", "Tuotteet", new { @class = "btn btn-info" })</p>  Tämän rivin koodi ei muista poiketen jostain syystä toimi. Plussaa: edellisen rivin tyylillä sivun osoitteessa ei lue lenght.. Miinus: valittaa, että sulku puuttuu*@
     </div>
 </div>
 
- @*Ohjeita stackowerflowsta ku yritin saada karusellin toimimaan. Ei jeesaa.*@
+@*Ohjeita stackowerflowsta ku yritin saada karusellin toimimaan. Ei jeesaa.*@
 @*@Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")*@
